@@ -1,0 +1,39 @@
+# Data (download locally; do not commit raw dumps)
+data/raw/*
+data/processed/*
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+*.egg-info/
+.eggs/
+dist/
+build/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / OS
+.idea/
+.vscode/
+.DS_Store
+*.swp
+
+# Model artifacts / caches (keep metrics & figures)
+reports/artifacts/
+*.joblib
+*.pkl
+.cache/
+reports/train_eval.log
+
+# Environment
+.env
+.python-version

@@ -1,0 +1,223 @@
+{
+  "cleaning": {
+    "n_missing": 0,
+    "dropped_columns": [
+      "sensor_1",
+      "sensor_10",
+      "sensor_16",
+      "sensor_18",
+      "sensor_19",
+      "sensor_5",
+      "setting_3"
+    ],
+    "kept_sensors": [
+      "sensor_2",
+      "sensor_3",
+      "sensor_4",
+      "sensor_6",
+      "sensor_7",
+      "sensor_8",
+      "sensor_9",
+      "sensor_11",
+      "sensor_12",
+      "sensor_13",
+      "sensor_14",
+      "sensor_15",
+      "sensor_17",
+      "sensor_20",
+      "sensor_21"
+    ],
+    "kept_settings": [
+      "setting_1",
+      "setting_2"
+    ],
+    "rul_cap": 125,
+    "rolling_window": 5,
+    "n_features": 68
+  },
+  "validation": [
+    {
+      "model": "LinearRegression",
+      "MAE": 15.85989840148531,
+      "RMSE": 19.771839093586575,
+      "NASA_score": 26386.779401052423
+    },
+    {
+      "model": "RandomForest",
+      "MAE": 11.893864315946454,
+      "RMSE": 16.333758603167524,
+      "NASA_score": 28844.730931675764
+    },
+    {
+      "model": "XGBoost",
+      "MAE": 11.444382304242406,
+      "RMSE": 16.04485087611585,
+      "NASA_score": 29333.732202830855
+    }
+  ],
+  "best_params": {
+    "RandomForest": {
+      "n_estimators": 200,
+      "min_samples_leaf": 2,
+      "max_features": "sqrt",
+      "max_depth": 8
+    },
+    "XGBoost": {
+      "subsample": 0.7,
+      "n_estimators": 200,
+      "min_child_weight": 1,
+      "max_depth": 4,
+      "learning_rate": 0.05,
+      "colsample_bytree": 0.7
+    }
+  },
+  "test": [
+    {
+      "model": "LinearRegression",
+      "MAE": 17.63724880019251,
+      "RMSE": 22.009556519806548,
+      "NASA_score": 1414.0775492331181
+    },
+    {
+      "model": "RandomForest",
+      "MAE": 13.37690800303568,
+      "RMSE": 18.129463862332234,
+      "NASA_score": 797.0655096357098
+    },
+    {
+      "model": "XGBoost",
+      "MAE": 13.427136487960816,
+      "RMSE": 18.45732154954576,
+      "NASA_score": 881.4223500730982
+    }
+  ],
+  "error_analysis": {
+    "best_model_by_rmse": "RandomForest",
+    "worst_5_engines": [
+      {
+        "unit_id": 79,
+        "true_RUL": 63.0,
+        "pred_RUL": 113.63907790006586,
+        "error": 50.63907790006586,
+        "abs_error": 50.63907790006586
+      },
+      {
+        "unit_id": 27,
+        "true_RUL": 66.0,
+        "pred_RUL": 112.9595249614785,
+        "error": 46.95952496147849,
+        "abs_error": 46.95952496147849
+      },
+      {
+        "unit_id": 18,
+        "true_RUL": 28.0,
+        "pred_RUL": 72.51695594399513,
+        "error": 44.51695594399513,
+        "abs_error": 44.51695594399513
+      },
+      {
+        "unit_id": 93,
+        "true_RUL": 85.0,
+        "pred_RUL": 41.791580998878764,
+        "error": -43.208419001121236,
+        "abs_error": 43.208419001121236
+      },
+      {
+        "unit_id": 37,
+        "true_RUL": 21.0,
+        "pred_RUL": 62.693865350339884,
+        "error": 41.693865350339884,
+        "abs_error": 41.693865350339884
+      }
+    ],
+    "mean_signed_error": 3.5823095194331107,
+    "pct_late_predictions": 65.0,
+    "pct_early_predictions": 35.0
+  },
+  "top_features": {
+    "RandomForest": [
+      {
+        "feature": "sensor_4_roll_mean",
+        "importance": 0.1269405681714941
+      },
+      {
+        "feature": "sensor_15_roll_mean",
+        "importance": 0.09986003209958944
+      },
+      {
+        "feature": "sensor_11_roll_mean",
+        "importance": 0.09384482486289715
+      },
+      {
+        "feature": "sensor_20_roll_mean",
+        "importance": 0.07028767434772949
+      },
+      {
+        "feature": "sensor_7_roll_mean",
+        "importance": 0.06831848239248058
+      },
+      {
+        "feature": "sensor_2_roll_mean",
+        "importance": 0.06525089629612606
+      },
+      {
+        "feature": "sensor_21_roll_mean",
+        "importance": 0.05537926794986797
+      },
+      {
+        "feature": "sensor_3_roll_mean",
+        "importance": 0.05126716060904475
+      },
+      {
+        "feature": "sensor_17_roll_mean",
+        "importance": 0.03748954282891065
+      },
+      {
+        "feature": "sensor_9_roll_mean",
+        "importance": 0.03541692201533554
+      }
+    ],
+    "XGBoost": [
+      {
+        "feature": "sensor_4_roll_mean",
+        "importance": 0.3670327961444855
+      },
+      {
+        "feature": "sensor_11_roll_mean",
+        "importance": 0.1666388362646103
+      },
+      {
+        "feature": "sensor_15_roll_mean",
+        "importance": 0.12979990243911743
+      },
+      {
+        "feature": "sensor_2_roll_mean",
+        "importance": 0.05069128796458244
+      },
+      {
+        "feature": "sensor_9_roll_mean",
+        "importance": 0.041073184460401535
+      },
+      {
+        "feature": "sensor_3_roll_mean",
+        "importance": 0.024197053164243698
+      },
+      {
+        "feature": "sensor_9",
+        "importance": 0.021895598620176315
+      },
+      {
+        "feature": "sensor_17_roll_mean",
+        "importance": 0.02141730673611164
+      },
+      {
+        "feature": "sensor_21_roll_mean",
+        "importance": 0.020733650773763657
+      },
+      {
+        "feature": "sensor_20_roll_mean",
+        "importance": 0.018315060064196587
+      }
+    ]
+  }
+}
